@@ -96,30 +96,14 @@
           [ '&', '&amp;' ],
           [ '\n', '<br/>' ],
           [ '"', '&quot;' ],
-          [ "'", '&#39;' ]
+          [ "'", '&#39;' ],
+          [ ' ', '&nbsp;' ]
         ];
 
         // We use a loop (DRY) and array functions instead of replace (performance).
         for (var i = 0; i < escape.length; ++i) {
           text = text.split(escape[i][0]).join(escape[i][1]);
         }
-
-        // We have to replace space sequences with non-breaking space HTML entities in our mirror, otherwise we are not
-        // able to compute the actual height for the textarea because multiple spaces are only counted once within HTML.
-        text = text.replace(/ {2,}/g, function (space) {
-          /**
-           * Again we use an array instead of a string (performance).
-           * @type Array
-           */
-          var r = [];
-
-          for (var i = 0; i < space.length; ++i) {
-            r.push('&nbsp;');
-          }
-
-          // Join the array elements and build a string.
-          return r.join('');
-        });
 
         // Insert the escaped string into our mirror element and set the new height on the textarea.
         $self.css('height', $mirror.html(text + '.<br/>.').height());
