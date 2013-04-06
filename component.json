@@ -1,0 +1,27 @@
+{
+  "name": "jquery.textareaAutogrow",
+  "version": "0.0.1",
+  "description": "Textareas grow vertically as they become full.",
+  "homepage": "https://github.com/Fleshgrinder/jquery.textareaAutogrow",
+  "main": [
+    "./jquery.textareaAutogrow.js",
+    "./jquery.textareaAutogrow.min.js"
+  ],
+  "dependencies": {
+    "jquery": "latest"
+  },
+  "keywords": [
+    "browser",
+    "client",
+    "functional",
+    "textarea"
+  ],
+  "author": {
+    "name": "Richard Fussenegger",
+    "url": "http://richard.fussenegger.info/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Fleshgrinder/jquery.textareaAutogrow.git"
+  }
+}
