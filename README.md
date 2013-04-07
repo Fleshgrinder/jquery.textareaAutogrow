@@ -8,12 +8,12 @@ it as fast and clean as possible, combine the best of all available plug-ins and
 
 ## Code quality
 
-Code was checked with [JSHint](http://www.jshint.com/) and no problems were found (Be sure to check Browser and jQuery
+Code was checked with [JSHint](http://www.jshint.com/) and no problems were found (be sure to check Browser and jQuery
 in the Assume section on the right hand side).
 
 I indent my code with two spaces and a line length of 120. I documented everything as good as I could.
 
-I used [UglifyJS](http://marijnhaverbeke.nl/uglifyjs) to create the minimifed version of this plug-in.
+I used [UglifyJS](http://marijnhaverbeke.nl/uglifyjs) to create the minified version of this plug-in.
 
 ## Installation and usage
 
