@@ -13,7 +13,7 @@ in the Assume section on the right hand side).
 
 I indent my code with two spaces and a line length of 120. I documented everything as good as I could.
 
-I used [UglifyJS](http://marijnhaverbeke.nl/uglifyjs) to create the minified version of this plug-in.
+I used [UglifyJS2](https://github.com/mishoo/UglifyJS2) to create the minified version of this plug-in.
 
 ## Installation and usage
 
