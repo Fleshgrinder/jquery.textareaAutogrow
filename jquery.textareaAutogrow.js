@@ -117,9 +117,9 @@
       ;
 
       // Also resize this textarea if the size of the window changes. Because the size of the textarea might have
-      // changed because of that (important for responsive designs).
+      // changed as well (important for responsive designs).
       $(window).resize(function () {
-        // Recalculate the mirror with because it might have changed!
+        // Recalculate the mirror width; it might have changed!
         $mirror.css('width', $self.css('width'));
         textareaAutogrow();
       });
