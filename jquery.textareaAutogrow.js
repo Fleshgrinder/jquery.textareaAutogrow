@@ -6,9 +6,12 @@
 
 /**
  * @param {jQuery} $
+ * @param {Object} window
+ * @param {Object} document
+ * @param {undefined} undefined
  * @returns {void}
  */
-(function ($) {
+;(function ($, window, document, undefined) {
   'use strict';
 
   /**
@@ -53,7 +56,7 @@
    */
   $.fn.textareaAutogrow = function () {
     // Only act on textareas!
-    return this.filter('textarea').each(function () {
+    return this.filter('textarea:not(.textarea-autogrow)').each(function () {
       /**
        * Reference to the current textarea (jQuery object).
        * @type jQuery.Object
@@ -68,7 +71,7 @@
         display: 'none',
         wordWrap: 'break-word',
         padding: $self.css('padding'),
-        width: $self.css('width'),
+        width: $self.width(),
         fontFamily: $self.css('font-family'),
         fontSize: $self.css('font-size'),
         fontWeight: $self.css('font-weight'),
@@ -111,7 +114,8 @@
 
       // Prepare the textarea and create the hidden mirror.
       $self
-        .css({ overflow: 'hidden', minHeight: $self.css('height') })
+        .addClass('textarea-autogrow')
+        .css({ overflow: 'hidden', minHeight: $self.height() })
         .after($mirror)
         .bind('input propertychange', textareaAutogrow)
       ;
@@ -120,7 +124,7 @@
       // changed as well (important for responsive designs).
       $(window).resize(function () {
         // Recalculate the mirror width; it might have changed!
-        $mirror.css('width', $self.css('width'));
+        $mirror.css('width', $self.width());
         textareaAutogrow();
       });
 
@@ -129,4 +133,4 @@
     });
   };
 
-})(jQuery);
+})(jQuery, window, document);
