@@ -1,6 +1,6 @@
 {
   "name": "jquery.textareaAutogrow",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Textareas grow vertically as they become full.",
   "homepage": "https://github.com/Fleshgrinder/jquery.textareaAutogrow",
   "main": [
