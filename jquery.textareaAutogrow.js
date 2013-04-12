@@ -7,11 +7,9 @@
 /**
  * @param {jQuery} $
  * @param {Object} window
- * @param {Object} document
- * @param {undefined} undefined
  * @returns {void}
  */
-;(function ($, window, document, undefined) {
+;(function ($, window) {
   'use strict';
 
   /**
@@ -70,8 +68,8 @@
       var $mirror = $('<div>').css({
         display: 'none',
         wordWrap: 'break-word',
-        padding: $self.css('padding'),
         width: $self.width(),
+        padding: $self.css('padding'),
         fontFamily: $self.css('font-family'),
         fontSize: $self.css('font-size'),
         fontWeight: $self.css('font-weight'),
@@ -120,11 +118,22 @@
         .bind('input propertychange', textareaAutogrow)
       ;
 
-      // Also resize this textarea if the size of the window changes. Because the size of the textarea might have
-      // changed as well (important for responsive designs).
+      // React on resizing of the browser window (responsive designs).
       $(window).resize(function () {
-        // Recalculate the mirror width; it might have changed!
-        $mirror.css('width', $self.width());
+        // Recompute minimum height of textarea.
+        $self.css({ height: '', minHeight: $self.height() });
+
+        // Update the complete CSS of the mirror, within a responsive design everything might have changed.
+        $mirror.css({
+          width: $self.width(),
+          padding: $self.css('padding'),
+          fontFamily: $self.css('font-family'),
+          fontSize: $self.css('font-size'),
+          fontWeight: $self.css('font-weight'),
+          lineHeight: $self.css('line-height')
+        });
+
+        // Fire the event so updates are reflected within our textarea and mirror.
         textareaAutogrow();
       });
 
@@ -133,4 +142,4 @@
     });
   };
 
-})(jQuery, window, document);
+})(jQuery, window);
